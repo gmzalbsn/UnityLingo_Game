@@ -4,7 +4,7 @@ public class LingoInputController : MonoBehaviour
 {
     [SerializeField] private LingoGameManager gameManager;
     [SerializeField] private LingoBoardUI boardUI;
-
+    [SerializeField] private bool allowEnterToSkipAttempt = false;
     private void Awake()
     {
         if (gameManager == null || boardUI == null)
@@ -37,11 +37,6 @@ public class LingoInputController : MonoBehaviour
                 string guess = boardUI.GetCurrentGuess();
                 gameManager.SubmitGuessFromUI(guess);
             }
-            else
-            {
-                gameManager.SkipAttemptFromUI();
-            }
-
             return;
         }
 
